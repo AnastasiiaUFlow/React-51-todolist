@@ -1,9 +1,15 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { toggleTodo } from '../redux/slices/slice'
-const TodoItem = (todo)=>{
+import { toggleTodo, deleteTodo } from '../redux/slices/slice'
+const TodoItem = ({ todo })=>{
     const dispatch = useDispatch()
-    return(<li>
-        
-    </li>)
+    return(
+        <li>
+            <span style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}>
+                {todo.text}
+            </span>
+            <button onClick={() => dispatch(toggleTodo(todo.id))}>Toggle</button>
+            <button onClick={() => dispatch(deleteTodo(todo.id))}>Delete</button>
+        </li>)
 }
+export default TodoItem

@@ -6,19 +6,19 @@ import { addTodo} from "../redux/slices/slice";
 const TodoForm = ()=>{
 const [inputValue, setInputValue] = useState('')
 const dispatch = useDispatch()
-const handleAddTask = (e)=>{
-    e.preventDefault()
-    if(inputValue.trim().length===0) return
-    dispatch({
-      type: 'todos/addTodo', // Или используйте импортированный экшен: addTask(...)
-      payload: {
-        id: Date.now(), // Уникальный id
-        text: text.trim(),
-        completed: false // Статус по умолчанию
-      }
-    })
-    setInputValue('')
-}
+
+const handleAddTask = (e) => {
+    e.preventDefault();
+    if (inputValue.trim().length === 0) return;
+
+    dispatch(addTodo({
+        id: Date.now(),
+        text: inputValue.trim(),
+        completed: false
+    }));
+
+    setInputValue('');
+};
 const handleRemoveTodo = (id)=>{
     dispatch(deleteTodo(id))
 }

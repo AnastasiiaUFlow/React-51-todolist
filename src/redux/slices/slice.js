@@ -13,9 +13,9 @@ const slice = createSlice({
                 todo.completed = !todo.completed
             }
         },
-        deleteTodo:(state, action)=>{
-            state.filter(todo=> todo.id !== action.payload)
-        },
+        deleteTodo: (state, action) => {
+    return state.filter(todo => todo.id !== action.payload);
+},
     }
 })
 export const {addTodo,toggleTodo,deleteTodo} = slice.actions
