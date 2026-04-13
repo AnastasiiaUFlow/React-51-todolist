@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
+const initialState = []
 const slice = createSlice({
     name:'slice',
-    initialState:[],
+    initialState,
     reducers:{
         addTodo:(state, action)=>{
             state.push(action.payload)
@@ -17,3 +18,5 @@ const slice = createSlice({
         },
     }
 })
+export const {addTodo,toggleTodo,deleteTodo} = slice.actions
+export default slice
