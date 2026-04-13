@@ -1,18 +1,15 @@
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector} from "react-redux";
 import TodoItem from "./TodoItem";
-import { addTodo, deleteTodo } from "../redux/slices/slice";
-import React, { useState } from 'react'
 
 const TodoList = () =>{
-    const [inputValue, setInputValue] = useState('');
-    const todos = useSelector((state)=>state.todos.items)
-}
+    const todos = useSelector((state)=>state.todos.todos)
+
 return(
     <div>
-        <title>Todo List</title>
+        <h1>Todo List</h1>
         <ul>
-            <li>{todos.map((todo)=>(<TodoItem key={todo.id} todo={todo} />))}</li>
+            {todos.map((todo)=>(<TodoItem key={todo.id} todo={todo} />))}
         </ul>
     </div>
-)
-export default TodoList
+)}
+export default TodoList;

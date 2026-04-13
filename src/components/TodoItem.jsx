@@ -1,9 +1,9 @@
 import React from 'react'
-
-export default function TodoItem() {
-  return (
-    <div>
-      
-    </div>
-  )
+import { useDispatch } from 'react-redux'
+import { toggleTodo } from '../redux/slices/slice'
+const TodoItem = (todo)=>{
+    const dispatch = useDispatch()
+    return(<li>
+        
+    </li>)
 }
